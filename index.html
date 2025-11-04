@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Premium Marble House — Flagship</title>
+  <meta name="description" content="Premium Marble House — luxury marble sourcing, precision fabrication & installation" />
+  <meta name="color-scheme" content="dark light">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================
+       Premium Marble House — Ultra Index
+       Cinematic metallic + marble aesthetic
+       - Pure HTML/CSS/JS
+       - GPU friendly (transforms + opacity)
+       - Reduced-motion respectful
+       ============================ */
+
+
+
+    /* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle at 30% 30%, #25d366, #128c7e);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+.whatsapp-float img {
+  width: 34px;
+  height: 34px;
+  filter: invert(100%);
+}
+.whatsapp-float:hover {
+  transform: scale(1.12) rotate(5deg);
+  box-shadow: 0 10px 35px rgba(37, 211, 102, 0.8);
+}
+
+    :root{
+      --bg-900:#030304; --bg-800:#0b0c0d;
+      --muted-1:#c7ced3; --muted-2:#9aa4ab; --muted-3:#6f7a80;
+      --accent:#ffffff;
+      --gold: rgba(255, 220, 140, 0.06); /* subtle gold sheen */
+      --card: rgba(255,255,255,0.02);
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.045);
+      --radius:16px;
+      --shadow-lg: 0 30px 110px rgba(0,0,0,0.7);
+      --maxw:1280px;
+      --gap: clamp(12px, 2.2vw, 36px);
+
+      --fs-xxl: clamp(1.8rem, 1.1rem + 4.4vw, 4rem);
+      --fs-xl: clamp(1.2rem, 0.9rem + 2.4vw, 2.2rem);
+      --fs-md: clamp(1rem, 0.9rem + 0.7vw, 1.1rem);
+      --fs-sm: 0.95rem;
+    }
+
+
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:linear-gradient(180deg,var(--bg-900),var(--bg-800));color:var(--accent);-webkit-font-smoothing:antialiased;scroll-behavior:smooth;overflow-x:hidden}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit}
+    small{color:var(--muted-2)}
+
+    /* container */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(14px,4vw,48px);position:relative;z-index:2} 
+
+    /* ===== header ===== */
+    header{display:flex;align-items:center;gap:14px;position:relative;z-index:12}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:60px;height:60px;border-radius:12px;; background-image: url(images/m\ \(19\).jpg);
+      display:grid;place-items:center;font-weight:900;font-size:20px;color:var(--accent);
+      box-shadow: inset 0 -8px 18px rgba(255,255,255,0.02), 0 12px 30px rgba(0,0,0,0.6);
+      transform:translateZ(0) ;
+    }
+    .brand h1{font-size:1.05rem;margin:0}
+    .brand .tag{font-size:0.86rem;color:var(--muted-2)}
+
+    /* nav */
+    .nav-desktop{display:none;margin-left:auto;gap:12px;align-items:center }
+    .nav-desktop a{padding:9px 14px;border-radius:10px;font-weight:700;color:var(--muted-1);transition:transform .28s, color .28s}
+    .nav-desktop a:hover{color:var(--accent);transform:translateY(-3px)}
+    .nav-cta{background:linear-gradient(90deg,#ffffff08,#ffffff03);padding:9px 14px;border-radius:10px;font-weight:800}
+
+    .toggle-btn{margin-left:auto;background:var(--card);border-radius:12px;padding:10px;display:grid;place-items:center;width:48px;height:48px;cursor:pointer;border:0;color:var(--muted-1);font-size:18px}
+
+    @media(min-width:820px){
+      .nav-desktop{display:flex}
+      .toggle-btn{display:none}
+    }
+
+    /* Mobile nav off-canvas w/ focus trap implemented in JS */
+    .mobile-nav{
+      position:fixed;top:0;right:0;height:100vh;width:420px;max-width:92%;
+      background:linear-gradient(180deg,var(--bg-800),var(--bg-900));
+      box-shadow:-24px 36px 120px rgba(0,0,0,0.85);transform:translateX(120%);
+      transition:transform .45s cubic-bezier(.2,.9,.24,1);z-index:520;padding:20px; text-decoration: none;
+    }
+    .mobile-nav.open{transform:translateX(0) }
+    .mobile-nav .close{margin-left:auto;background:transparent;border:0;color:var(--muted-1);font-weight:700;font-size:22px }
+    .mobile-nav ul{list-style:none;padding:18px 0 0 0;display:flex;flex-direction:column;gap:10px }
+    .mobile-nav a{display:block;padding:12px;border-radius:10px;color:var(--muted-1) }
+
+    /* ===== cinematic hero ===== */
+    .hero{
+      display:grid;grid-template-columns:1fr;gap:var(--gap);align-items:center;margin-top:calc(var(--gap) * 0.6);
+      perspective:1600px;
+    }
+    @media(min-width:1100px){ .hero{grid-template-columns:1fr 620px} }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:28px;border-radius:18px;box-shadow:var(--shadow-lg);transform-style:preserve-3d;overflow:visible;position:relative;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .kicker{display:inline-block;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,0.02);font-weight:800;color:var(--muted-1);font-size:0.86rem}
+    .hero-card h2{font-size:var(--fs-xxl);margin:12px 0 12px 0;line-height:1.02;letter-spacing:-0.02em}
+    .hero-card p{color:var(--muted-2);font-size:var(--fs-md);margin:0}
+
+    /* tagline metal engraving */
+    .slogan{
+      margin-top:18px;font-weight:800;font-size:1.2rem;color:rgba(255,255,255,0.95);
+      background: linear-gradient(90deg, rgba(255,255,255,0.98), rgba(255,255,255,0.75));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:12px 12px;border-radius:12px;font-weight:800;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));cursor:pointer;border:1px solid rgba(255,255,255,0.02);
+      transition:transform .26s, box-shadow .26s;
+    }
+    .btn:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+    .btn.primary{background:linear-gradient(90deg,#fff,#f3f3f3);color:#000;border:0}
+
+    /* 3D metallic icon cards */
+    .icons-row{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
+    .icon-card{
+      display:flex;align-items:center;gap:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px;border-radius:12px;min-width:220px;box-shadow:0 14px 60px rgba(0,0,0,0.6);transform-style:preserve-3d;border:1px solid rgba(255,255,255,0.02);
+      transition:transform .5s cubic-bezier(.2,.9,.2,1), box-shadow .4s;
+    }
+    .icon-card:hover{transform:translateY(-12px) rotateX(4deg) rotateY(-4deg)}
+    .icon-svg{width:78px;height:78px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));box-shadow:0 18px 48px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    /* hero media / 3D tilt */
+    .hero-media{border-radius:16px;overflow:hidden;position:relative;box-shadow:var(--shadow-lg);transform-style:preserve-3d}
+    .visual-wrap{position:relative;will-change:transform;transform-origin:center center;transition:transform .6s cubic-bezier(.2,.9,.2,1)}
+    .visual{
+      width:100%;height:420px;background-image:url(images/morwadwhite.jpg);background-size:cover;background-position:center;transform:translateZ(0);
+      transition:transform .9s cubic-bezier(.2,.9,.2,1);
+    }
+    @media(min-width:1100px){ .visual{height:640px} }
+
+    .badge-3d{
+      position:absolute;right:18px;top:18px;background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      padding:10px 14px;border-radius:12px;backdrop-filter:none;border:1px solid rgba(255,255,255,0.02);
+      transform:translateZ(40px) rotateX(6deg);box-shadow:0 26px 60px rgba(0,0,0,0.55)
+    }
+
+    /* ===== Why choose us (premium cards) ===== */
+    .why{margin-top:var(--gap)}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .why-card{padding:18px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);box-shadow:0 12px 40px rgba(0,0,0,0.55);transform-style:preserve-3d;border:1px solid rgba(255,255,255,0.02)}
+    .why-svg{width:82px;height:82px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));box-shadow:0 20px 48px rgba(0,0,0,0.6)}
+
+    /* ===== interactive gallery (tilt + lightbox) ===== */
+    .gallery{margin-top:var(--gap)}
+    .gallery-strip{display:flex;gap:18px;overflow:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .g-item{flex:0 0 320px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:14px;padding:12px;box-shadow:0 18px 60px rgba(0,0,0,0.6);transform-style:preserve-3d;cursor:pointer}
+    .g-item .imgwrap{height:220px;border-radius:10px;overflow:hidden;background:#090909}
+    @media(min-width:1100px){ .g-item{flex:0 0 360px} .g-item .imgwrap{height:280px} }
+
+    /* lightbox */
+    .lightbox{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);z-index:980;padding:24px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:92%;max-height:86%;border-radius:12px;box-shadow:0 30px 120px rgba(0,0,0,0.85)}
+
+    /* ===== testimonials slider (manual) ===== */
+    .testi-wrap{margin-top:var(--gap);position:relative}
+    .testi-track{display:flex;gap:20px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .testi-card{flex:0 0 86%;max-width:86%;scroll-snap-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:22px;border-radius:14px;box-shadow:0 26px 86px rgba(0,0,0,0.6);transform-style:preserve-3d}
+    @media(min-width:1100px){ .testi-card{flex:0 0 46%;max-width:46%} }
+
+    .testi-controls{display:flex;gap:12px;justify-content:center;margin-top:16px}
+
+    /* ===== clients row (gentle float) ===== */
+    .clients{display:flex;gap:12px;align-items:center;overflow:hidden;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);box-shadow:0 12px 40px rgba(0,0,0,0.5);margin-top:var(--gap)}
+    .client-logo{flex:0 0 120px;opacity:0.83;filter:grayscale(0.15);transition:transform .3s,opacity .3s}
+    .client-logo:hover{transform:translateY(-6px);opacity:1;filter:grayscale(0)}
+
+    /* ===== case grid & downloads ===== */
+    .case-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:12px}
+
+    /* cta */
+    .cta{margin-top:var(--gap);padding:20px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);box-shadow:0 18px 60px rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .cta .left{flex:1}
+    .cta .actions{display:flex;gap:12px}
+
+    /* footer */
+    footer{margin:32px 0 80px;text-align:center;color:var(--muted-1)}
+    .socials{display:flex;gap:50px;justify-content:center;margin-top:12px}
+    .s-btn{width:88px;height:44px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,0.5)}
+
+    /* tiny reveal utility */
+    .fade{opacity:0;transform:translateY(18px) translateZ(0);transition:all .9s cubic-bezier(.2,.9,.2,1)}
+    .is-visible{opacity:1;transform:none}
+
+    /* reduced motion */
+    @media (prefers-reduced-motion:reduce){*{transition:none!important} canvas{display:none!important}}
+
+    /* responsive tweaks */
+    @media (max-width:720px){
+      .brand h1{font-size:1rem}
+      .visual{height:300px}
+      .hero-card{padding:16px}
+      .icons-row{gap:10px}
+      .g-item{flex:0 0 82%}
+    }
+    .socials {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.s-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(145deg, #333, #111);
+  box-shadow: inset 1px 1px 4px rgba(255, 255, 255, 0.1), 0 0 10px rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  justify-content: center;
+  width: 111px;
+}
+
+.s-btn:hover {
+  background: linear-gradient(145deg, #555, #222);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+  </style>
+</head>
+<body>
+  <!-- subtle marble dust particles -->
+  <canvas id="particles" style="position:fixed;inset:0;margin:0;padding:0;z-index:1;pointer-events:none"></canvas>
+
+  <div class="wrap" id="page" style="position:relative;z-index:2">
+    <!-- HEADER -->
+    <header>
+      <div class="brand" aria-hidden="false">
+        <div class="logo" id="brandLogo"><img src="images/logo.png" alt="PMH"></div>
+        <div>
+          <h1 style="margin:0;font-weight:800">Premium Marble House</h1>
+          <div class="tag">Luxury • Precision • Provenance</div>
+        </div>
+      </div>
+
+      <!-- desktop nav -->
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="services.html">SERVICES</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html" class="nav-cta">CONTACT</a>
+      </nav>
+
+      <!-- mobile toggle -->
+      <button class="toggle-btn" id="openNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">☰</button>
+    </header>
+
+    <!-- mobile nav (focus trap implemented in JS) -->
+    <nav id="mobileNav" class="mobile-nav" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+      <div style="display:flex;align-items:center;gap:8px">
+        <strong style="font-size:18px">Menu</strong>
+        <button class="close" id="closeNav" aria-label="Close menu" style="margin-left:auto;background:transparent;border:0;color:var(--muted-1);font-weight:700">✕</button>
+      </div>
+      <ul role="menu" aria-label="Mobile menu">
+        <li role="none"><a role="menuitem" href="index.html">HOME</a></li>
+        <li role="none"><a role="menuitem" href="about.html">ABOUT</a></li>
+        <li role="none"><a role="menuitem" href="services.html">SERVICES</a></li>
+        <li role="none"><a role="menuitem" href="projects.html">PROJECTS</a></li>
+        <li role="none"><a role="menuitem" href="gallery.html">GALLERY</a></li>
+        <li role="none"><a role="menuitem" href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <main class="hero" id="main">
+      <section class="hero-card fade" id="heroCard" aria-labelledby="heroTitle">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="kicker">Flagship Collection</div>
+          <small style="opacity:0.9">Limited selections by appointment</small>
+        </div>
+
+        <h2 id="heroTitle">Where Luxury Meets Precision.</h2>
+        <p class="muted-2">We transform rare stone into architectural experiences — from careful quarry selection and documented slab maps to high-precision fabrication and insured installation. Expect craftsmen, engineers and showroom-level QC on every project.</p>
+
+        <div class="slogan">Crafting spaces in stone — engineering the finish.</div>
+
+        <div class="icons-row" role="list" aria-label="Core capabilities">
+          <div class="icon-card fade" role="listitem">
+            <div class="icon-svg" aria-hidden>
+              <!-- stylized multi-layer metallic SVG -->
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="none">
+                <defs><linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.12"/><stop offset="1" stop-color="#fff" stop-opacity="0.03"/></linearGradient></defs>
+                <rect width="24" height="24" rx="4" fill="url(#gA)"></rect>
+                <path d="M5 16 L9 9 L13 13 L17 7 L19 16" stroke="rgba(255,255,255,0.2)" stroke-width="1.1" fill="none"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Quarry Sourcing</strong>
+              <div class="muted-2" style="font-size:0.9rem">Slab maps, provenance & direct sourcing</div>
+            </div>
+          </div>
+
+          <div class="icon-card fade" role="listitem">
+            <div class="icon-svg" aria-hidden>
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="none">
+                <rect width="24" height="24" rx="4" fill="url(#gA)"></rect>
+                <path d="M6 8h12M6 12h12M8 16h8" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Precision Fabrication</strong>
+              <div class="muted-2" style="font-size:0.9rem">CNC, waterjet & finishing</div>
+            </div>
+          </div>
+
+          <div class="icon-card fade" role="listitem">
+            <div class="icon-svg" aria-hidden>
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="none">
+                <rect width="24" height="24" rx="4" fill="url(#gA)"></rect>
+                <path d="M3 15h13l4 4V7" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Insured Logistics</strong>
+              <div class="muted-2" style="font-size:0.9rem">Crate certification & shock monitoring</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn primary" onclick="location.href='contact.html'">Start a Project</button>
+          <button class="btn" onclick="location.href='gallery.html'">Experience Material</button>
+          <button class="btn" onclick="location.href='services.html'">Explore Services</button>
+        </div>
+      </section>
+
+      <aside class="hero-media fade" aria-hidden="true">
+        <div class="visual-wrap" id="visualWrap" tabindex="0">
+          <div class="visual" id="heroVisual" role="img" aria-label="Marble showcase"></div>
+          <div class="badge-3d">Featured — Morwad White</div>
+        </div>
+      </aside>
+      
+
+    </main>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why fade" aria-labelledby="whyTitle">
+      <h3 id="whyTitle" style="font-size:var(--fs-xl);margin:6px 0">Why Premium Marble House</h3>
+      <p class="muted-2">Craft, engineering and logistics in a single partner. We deliver performance and provenance for premium buildings.</p>
+
+      <div class="why-grid" style="margin-top:12px">
+        <div class="why-card fade" role="article">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="why-svg" aria-hidden>
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="rgba(255,255,255,0.02)"/><path d="M12 3l7 3v5c0 5-4 9-7 10-3-1-7-5-7-10V6l7-3z" stroke="rgba(255,255,255,0.18)"/></svg>
+            </div>
+            <div>
+              <h4 style="margin:0">14-Point QC & Finishing</h4>
+              <div class="muted-2" style="font-size:0.92rem">Dimensional checks, surface quality and finish validation on every slab.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-card fade" role="article">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="why-svg" aria-hidden>
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="rgba(255,255,255,0.02)"/><path d="M6 12c3-6 11-6 12-6-1 1-3 5-1 9-2-1-6-1-11-3z" stroke="rgba(255,255,255,0.18)"/></svg>
+            </div>
+            <div>
+              <h4 style="margin:0">Sustainability</h4>
+              <div class="muted-2" style="font-size:0.92rem">Optimized nesting & offcut reuse to reduce waste.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-card fade" role="article">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="why-svg" aria-hidden>
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="rgba(255,255,255,0.02)"/><path d="M3 12c2-5 11-6 18-2" stroke="rgba(255,255,255,0.18)"/></svg>
+            </div>
+            <div>
+              <h4 style="margin:0">End-to-End Coordination</h4>
+              <div class="muted-2" style="font-size:0.92rem">Design advice, site supervision & aftercare under one contract.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE GALLERY -->
+    <section id="gallery" class="gallery fade" aria-labelledby="galleryTitle">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 id="galleryTitle" style="font-size:var(--fs-xl);margin:6px 0">Experience the Material</h3>
+        <small class="muted-2">Pointer tilt • Click to open lightbox</small>
+      </div>
+
+      <div class="gallery-strip" id="galleryStrip" tabindex="0" style="margin-top:12px">
+        <article class="g-item" data-tilt role="button" tabindex="0" aria-label="Open image Calacatta">
+          <div class="imgwrap"><img src="images/morwadwhite.jpg" alt="Calacatta slab" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <h4>Morwad White 75rs/-sq</h4>
+          <p class="muted-2">Dramatic veining and luminous base.</p>
+        </article>
+
+        <article class="g-item" data-tilt role="button" tabindex="0" aria-label="Open image Onyx">
+          <div class="imgwrap"><img src="images/white19.jpg" alt="Onyx panel" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <h4>Wonder White 75rs/-Sq</h4>
+          <p class="muted-2">Translucent beauty for feature walls.</p>
+        </article>
+
+        <article class="g-item" data-tilt role="button" tabindex="0" aria-label="Open image Granite">
+          <div class="imgwrap"><img src="images/katani2.jpg" alt="Granite" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <h4>Brown katni 58rs/-Sq</h4>
+          <p class="muted-2">Extremely durable with strong patterning.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true" aria-label="Image viewer">
+      <button id="lbClose" style="position:absolute;top:24px;right:24px;background:transparent;border:0;color:#fff;font-size:28px;cursor:pointer">✕</button>
+      <img id="lbImage" src="" alt="">
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <section class="testi-wrap fade" aria-labelledby="testiTitle">
+      <h3 id="testiTitle" style="font-size:var(--fs-xl);margin:6px 0">What our clients say</h3>
+
+      <div class="testi-track" id="testiTrack" tabindex="0" aria-label="Testimonials">
+        <article class="testi-card" aria-hidden="false">
+          <p style="font-size:1.04rem">"PMH delivered a flawless book-matched island for our penthouse. From slab selection to site supervision — the process was meticulous."</p>
+          <div style="margin-top:10px;font-weight:800">— N. Kapoor, Architect</div>
+        </article>
+
+        <article class="testi-card">
+          <p style="font-size:1.04rem">"Their logistics team coordinated an international crate shipment with shock sensors — everything arrived undamaged and on time."</p>
+          <div style="margin-top:10px;font-weight:800">— Rakesh Sharma, Mall Owner</div>
+        </article>
+
+        <article class="testi-card">
+          <p style="font-size:1.04rem">"Restoration work was museum-grade. They matched the original patina and repaired structural issues expertly."</p>
+          <div style="margin-top:10px;font-weight:800">— Mohit Khandelwal, Private Client</div>
+        </article>
+      </div>
+
+      <div class="testi-controls" role="toolbar" aria-label="Testimonial controls">
+        <button class="btn" id="t-prev" aria-label="Previous testimonial">← Prev</button>
+        <button class="btn" id="t-next" aria-label="Next testimonial">Next →</button>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section class="clients fade" aria-label="Our clients">
+      <img class="client-logo" src="images/IMG_20210729_145201.jpg" alt="Client 1" width="250">
+      <img class="client-logo" src="images/white34.jpg" alt="Client 2" width="250">
+      <img class="client-logo" src="https://picsum.photos/seed/c3/200/80" alt="Client 3">
+      <img class="client-logo" src="https://picsum.photos/seed/c4/200/80" alt="Client 4">
+      <img class="client-logo" src="https://picsum.photos/seed/c5/200/80" alt="Client 5">
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="case-grid fade" aria-labelledby="caseTitle">
+      <h3 id="caseTitle" style="font-size:var(--fs-xl);margin:6px 0">Selected Case Studies</h3>
+
+      <div class="case-grid" style="margin-top:12px">
+        <article class="card" style="padding:0;overflow:hidden">
+          <img src="https://media.istockphoto.com/id/524779397/photo/reception-area-of-a-sales-office.jpg?s=612x612&w=0&k=20&c=HzFmlQfRbcS339dTa2VakbXAbek9eX0Cp4PGbDcmcuM=" alt="Case 1" style="height:220px;object-fit:cover">
+          <div style="padding:12px">
+            <h4 style="margin:0 0 6px 0">Hotel JollyParadise  — Lobby</h4>
+            <p class="muted-2">Double-height book-matched marble with integrated lighting.</p>
+          </div>
+        </article>
+
+        <article class="card" style="padding:0;overflow:hidden">
+          <img src="https://i.pinimg.com/736x/e4/15/af/e415af6b006f728790b9e8076d233659.jpg" alt="Case 2" style="height:220px;object-fit:cover">
+          <div style="padding:12px">
+            <h4 style="margin:0 0 6px 0">Hotel Shiv Villas Palace</h4>
+            <p class="muted-2">Waterfall island & coordinated veining across bathrooms.</p>
+          </div>
+        </article>
+
+        <article class="card" style="padding:0;overflow:hidden">
+          <img src="https://i.pinimg.com/736x/ff/99/f9/ff99f997a09843714fe3ed4ddb6b3b4a.jpg" alt="Case 3" style="height:220px;object-fit:cover">
+          <div style="padding:12px">
+            <h4 style="margin:0 0 6px 0">Delhi Govt. Contract — Entrance</h4>
+            <p class="muted-2">Durable floor surfaces with anti-slip finishing.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta fade" aria-labelledby="ctaTitle" style="margin-top:var(--gap)">
+      <div class="left">
+        <h3 id="ctaTitle" style="margin:0">Begin your project with us</h3>
+        <p class="muted-2" style="margin:6px 0 0 0">Request slab photos, a whatsapp call, or an indicative appointment. We handle every stage procurement,Contact us-91+7023446505.</p>
+      </div>
+      <div class="actions">
+        <button class="btn primary" onclick="location.href='contact.html'">Contact</button>
+        <button class="btn" onclick="location.href='gallery.html'">Material</button>
+      </div>
+    </section>
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917023446505" 
+   class="whatsapp-float" 
+   target="_blank" 
+   aria-label="Chat on WhatsApp">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" 
+       alt="WhatsApp" />
+</a>
+
+</body>
+</html>
+
+
+    <!-- FOOTER -->
+    <footer class="fade" style="margin-top:var(--gap)">
+      <div style="display:flex;justify-content:center;gap:14px;align-items:center">
+        <div style="font-weight:800">Premium Marble House</div>
+        <div style="color:var(--muted-2)">— The Art of Marble, Perfected</div>
+      </div>
+
+      <div class="socials" aria-hidden="true">
+  <a href="https://www.instagram.com/premium_marble_house9" class="s-btn" title="Instagram" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.youtube.com/@premiummarblehouse609" class="s-btn" title="YouTube" target="_blank">
+    <i class="fab fa-youtube"></i>
+  </a>
+  <a href="https://www.facebook.com/Premium marble house" class="s-btn" title="Facebook" target="_blank">
+    <i class="fab fa-facebook"></i>
+  </a>
+</div>
+
+
+      <div style="margin-top:12px;color:var(--muted-2);font-size:0.92rem">© <span id="year"></span> Premium Marble House — All rights reserved</div>
+    </footer>
+  </div>
+
+  <script>
+    /* ================================
+       1) Particles (marble dust) — lightweight
+       2) Hero tilt / parallax
+       3) Gallery tilt + lightbox
+       4) Testimonials manual slider
+       5) Mobile nav with focus trap
+       6) Scroll reveal
+       7) Accessibility + reduced motion handling
+       ================================ */
+
+    /* ---------- Particles ---------- */
+    (function(){
+      const canvas = document.getElementById('particles');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let dpr = Math.max(1, window.devicePixelRatio || 1);
+      let W = 0, H = 0, particles = [], raf;
+
+      function resize(){
+        dpr = Math.max(1, window.devicePixelRatio || 1);
+        W = Math.floor(window.innerWidth * dpr);
+        H = Math.floor(window.innerHeight * dpr);
+        canvas.width = W;
+        canvas.height = H;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function create(){
+        particles = [];
+        const count = Math.min(70, Math.max(28, Math.floor(window.innerWidth / 18)));
+        for(let i=0;i<count;i++){
+          particles.push({
+            x: Math.random()*window.innerWidth,
+            y: Math.random()*window.innerHeight,
+            r: (Math.random()*1.6)+0.5,
+            vy: 0.05 + Math.random()*0.45,
+            vx: (Math.random()-0.5)*0.3,
+            alpha: 0.04 + Math.random()*0.12,
+            sway: Math.random()*Math.PI*2
+          });
+        }
+      }
+
+      function step(){
+        ctx.clearRect(0,0,canvas.width/dpr, canvas.height/dpr);
+        particles.forEach(p=>{
+          p.x += p.vx;
+          p.y += p.vy;
+          p.sway += 0.01;
+          p.x += Math.sin(p.sway)*0.22;
+          if(p.y > window.innerHeight + 20){ p.y = -20; p.x = Math.random()*window.innerWidth; }
+          if(p.x < -30) p.x = window.innerWidth + 30;
+          if(p.x > window.innerWidth + 30) p.x = -30;
+          ctx.beginPath();
+          ctx.fillStyle = 'rgba(255,255,255,'+p.alpha+')';
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fill();
+        });
+        raf = requestAnimationFrame(step);
+      }
+
+      function start(){ cancelAnimationFrame(raf); resize(); create(); step(); }
+
+      window.addEventListener('resize', ()=>{ resize(); create(); });
+      start();
+
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ cancelAnimationFrame(raf); canvas.style.display='none'; }
+    })();
+
+    /* ---------- Reveal (IntersectionObserver) ---------- */
+    (function(){
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if(e.isIntersecting){
+            e.target.classList.add('is-visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, {threshold:0.12});
+      document.querySelectorAll('.fade, .icon-card, .why-card, .g-item, .testi-card, .clients, .card, .case-grid, footer').forEach(n => io.observe(n));
+    })();
+
+    /* ---------- Hero tilt/parallax ---------- */
+    (function(){
+      const wrap = document.getElementById('visualWrap');
+      const visual = document.getElementById('heroVisual');
+      if(!wrap || !visual) return;
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const onMove = (e) => {
+        const r = wrap.getBoundingClientRect();
+        const cx = (e.clientX - r.left)/r.width - 0.5;
+        const cy = (e.clientY - r.top)/r.height - 0.5;
+        const rx = (cy*6).toFixed(2);
+        const ry = (-cx*8).toFixed(2);
+        wrap.style.transform = `perspective(1400px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px)`;
+        visual.style.transform = `translateZ(30px) translateX(${(-cx*10).toFixed(2)}px) translateY(${(-cy*8).toFixed(2)}px) scale(1.035)`;
+      };
+      wrap.addEventListener('pointermove', onMove);
+      wrap.addEventListener('pointerleave', ()=>{ wrap.style.transform=''; visual.style.transform=''; });
+    })();
+
+    /* ---------- Tilt for gallery cards (pointer) ---------- */
+    (function(){
+      const tiltEls = document.querySelectorAll('[data-tilt]');
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      tiltEls.forEach(el=>{
+        el.addEventListener('pointermove', (e)=>{
+          const r = el.getBoundingClientRect();
+          const cx = (e.clientX - r.left)/r.width - 0.5;
+          const cy = (e.clientY - r.top)/r.height - 0.5;
+          el.style.transform = `rotateX(${(-cy*6).toFixed(2)}deg) rotateY(${(cx*6).toFixed(2)}deg) translateZ(12px)`;
+        });
+        el.addEventListener('pointerleave', ()=> el.style.transform = '');
+      });
+    })();
+
+    /* ---------- Gallery lightbox ---------- */
+    (function(){
+      const strip = document.getElementById('galleryStrip');
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImage');
+      const lbClose = document.getElementById('lbClose');
+
+      if(!strip || !lb) return;
+      function open(src, alt){
+        lbImg.src = src;
+        lbImg.alt = alt||'';
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden','false');
+        document.body.style.overflow='hidden';
+        lbClose.focus();
+      }
+      function close(){
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden','true');
+        lbImg.src = '';
+        document.body.style.overflow='';
+      }
+
+      strip.querySelectorAll('.g-item').forEach(item=>{
+        const img = item.querySelector('img');
+        item.addEventListener('click', ()=> open(img.src, img.alt));
+        item.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') open(img.src, img.alt); });
+      });
+
+      lbClose && lbClose.addEventListener('click', close);
+      lb.addEventListener('click', (e)=>{ if(e.target === lb) close(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+    })();
+
+    /* ---------- Testimonials slider ---------- */
+    (function(){
+      const track = document.getElementById('testiTrack');
+      const prev = document.getElementById('t-prev');
+      const next = document.getElementById('t-next');
+      if(!track) return;
+      function scrollBy(dir){
+        const card = track.querySelector('.testi-card');
+        if(!card) return;
+        const w = card.getBoundingClientRect().width + 20;
+        track.scrollBy({ left: dir === 'next' ? w : -w, behavior: 'smooth' });
+      }
+      prev && prev.addEventListener('click', ()=> scrollBy('prev'));
+      next && next.addEventListener('click', ()=> scrollBy('next'));
+      track.addEventListener('keydown', (e)=> { if(e.key === 'ArrowRight') scrollBy('next'); if(e.key === 'ArrowLeft') scrollBy('prev'); });
+    })();
+
+    /* ---------- Clients float ---------- */
+    (function(){
+      const clients = document.querySelector('.clients');
+      if(!clients) return;
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      let px = 0, dir = 1, raf;
+      function step(){
+        px += 0.14 * dir;
+        if(px > 8 || px < -8) dir *= -1;
+        clients.style.transform = `translateX(${px}px)`;
+        raf = requestAnimationFrame(step);
+      }
+      step();
+      document.addEventListener('visibilitychange', ()=> { if(document.hidden) cancelAnimationFrame(raf); else step(); });
+    })();
+
+    /* ---------- Mobile nav (with focus trap) ---------- */
+    (function(){
+      const openBtn = document.getElementById('openNav');
+      const closeBtn = document.getElementById('closeNav');
+      const mobile = document.getElementById('mobileNav');
+
+      let focusable = [];
+      function trapFocus(){ focusable = mobile.querySelectorAll('a,button,[tabindex]:not([tabindex="-1"])'); focusable[0] && focusable[0].focus(); }
+
+      if(openBtn && closeBtn && mobile){
+        openBtn.addEventListener('click', ()=>{
+          mobile.classList.add('open'); mobile.setAttribute('aria-hidden','false'); openBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden';
+          trapFocus();
+          document.addEventListener('keydown', handleTrap);
+        });
+
+        closeBtn.addEventListener('click', ()=> closeNav());
+        function closeNav(){
+          mobile.classList.remove('open'); mobile.setAttribute('aria-hidden','true'); openBtn.setAttribute('aria-expanded','false'); document.body.style.overflow='';
+          openBtn.focus();
+          document.removeEventListener('keydown', handleTrap);
+        }
+
+        mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeNav));
+
+        function handleTrap(e){
+          if(e.key !== 'Tab') return;
+          const first = focusable[0], last = focusable[focusable.length-1];
+          if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+          else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+          if(e.key === 'Escape'){ closeNav(); }
+        }
+      }
+    })();
+
+    /* ---------- helper: scroll to id ---------- */
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    /* ---------- hero CTA tiny shimmer (css class) ---------- */
+    (function(){
+      const btn = document.querySelector('.btn.primary');
+      if(!btn) return;
+      // add periodic glow pulse
+      let t;
+      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        t = setInterval(()=>{ btn.style.boxShadow = '0 22px 70px rgba(255,230,170,0.06)'; setTimeout(()=>btn.style.boxShadow = '', 420); }, 2500);
+      }
+      window.addEventListener('visibilitychange', ()=> { if(document.hidden) clearInterval(t); });
+    })();
+
+    /* ---------- scroll reveal initial run for visible elements ---------- */
+    (function(){
+      document.querySelectorAll('.fade').forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-visible');
+      });
+    })();
+
+    /* ---------- footer year ---------- */
+    (function(){ document.getElementById('year').textContent = new Date().getFullYear(); })();
+
+    /* Respect reduced motion: remove heavy transforms */
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('[style*="transform"]').forEach(n=>n.style.transform = '');
+    }
+  </script>
+</body>
+</html>

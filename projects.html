@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Projects — Premium Marble House (Ultra)</title>
+  <meta name="description" content="Services gallery — ultra responsive, image-first, dramatic 3D parallax and smooth sliders for Premium Marble House." />
+  <meta name="color-scheme" content="dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================== 
+       Services — Ultra Responsive (Monochrome Premium)
+       Mobile-first. Fluid typography, responsive grids, GPU-friendly transforms.
+       Right-side animated mobile menu added.
+       ============================================================== */
+
+       
+
+     /* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle at 30% 30%, #25d366, #128c7e);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+.whatsapp-float img {
+  width: 34px;
+  height: 34px;
+  filter: invert(100%);
+}
+.whatsapp-float:hover {
+  transform: scale(1.12) rotate(5deg);
+  box-shadow: 0 10px 35px rgba(37, 211, 102, 0.8);
+}
+
+    :root{
+      --bg-900:#020203; --bg-800:#0b0c0d;
+      --muted-1:#c7ced3; --muted-2:#9aa4ab; --muted-3:#6f7a80;
+      --accent:#ffffff; --glass:rgba(255,255,255,0.03); --card:rgba(255,255,255,0.02);
+      --radius:14px; --shadow-lg:0 30px 90px rgba(2,6,12,0.75);
+      --maxw:1300px; --gap:clamp(12px,2.4vw,32px);
+    }
+    :root{--fs-xxl:clamp(1.6rem,1.1rem+3.6vw,3.2rem);--fs-xl:clamp(1.2rem,0.9rem+2.2vw,2.2rem);--fs-md:clamp(1rem,0.9rem+0.4vw,1.05rem)}
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg-900),var(--bg-800));color:var(--accent);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%;height:auto}
+    a{color:inherit}
+
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(12px,3vw,36px)}
+
+    header{display:flex;align-items:center;gap:12px;position:relative;z-index:1200}
+    .logo{
+      width:60px;height:60px;border-radius:12px;; background-image: url(images/m\ \(19\).jpg);
+      display:grid;place-items:center;font-weight:900;font-size:20px;color:var(--accent);
+      box-shadow: inset 0 -8px 18px rgba(255,255,255,0.02), 0 12px 30px rgba(0,0,0,0.6);
+      transform:translateZ(0);
+    }
+    nav.desktop a{font-weight:700;padding:8px 12px;border-radius:10px;color:var(--muted-1)}
+    .cta{background:linear-gradient(90deg,#ffffff0a,#ffffff04);padding:8px 12px;border-radius:10px}
+
+    /* ===== Right-side Mobile Menu Button ===== */
+    .menu-btn{
+      display:none;
+      width:46px;height:46px;border-radius:12px;
+      background:var(--card);align-items:center;justify-content:center;
+      cursor:pointer;transition:transform .25s ease, background .25s ease;
+      margin-left:auto;
+      border: none;
+    }
+    .menu-btn:focus{outline:2px solid rgba(255,255,255,0.08)}
+    .menu-btn .bar{width:22px;height:2px;background:var(--accent);display:block;border-radius:2px;position:relative;transition:transform .32s cubic-bezier(.2,.9,.2,1),opacity .32s}
+    .menu-btn .bar::before, .menu-btn .bar::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--accent);border-radius:2px;transition:transform .32s cubic-bezier(.2,.9,.2,1),top .32s}
+    .menu-btn .bar::before{top:-7px}
+    .menu-btn .bar::after{top:7px}
+    .menu-btn.open .bar{background:transparent}
+    .menu-btn.open .bar::before{transform:rotate(45deg);top:0}
+    .menu-btn.open .bar::after{transform:rotate(-45deg);top:0}
+
+    /* ===== Mobile right-side panel ===== */
+    .mobile-backdrop{
+      position:fixed;inset:0;background:rgba(0,0,0,0.45);opacity:0;pointer-events:none;transition:opacity .28s ease;z-index:1190;
+    }
+    .mobile-backdrop.show{opacity:1;pointer-events:auto}
+
+    .mobile-nav{
+      position:fixed;top:0;right:0;height:100%;width:min(380px,86%);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: -40px 0 120px rgba(2,6,12,0.66);
+      transform:translateX(110%);transition:transform .42s cubic-bezier(.2,.9,.2,1);z-index:1195;
+      display:flex;flex-direction:column;padding:36px 20px;gap:18px;
+      -webkit-backdrop-filter: blur(8px);backdrop-filter: blur(8px);
+    }
+    .mobile-nav.show{transform:translateX(0)}
+    .mobile-nav .nav-inner{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+    .mobile-nav a{font-weight:700;padding:10px 12px;border-radius:8px;color:var(--muted-1);display:inline-block}
+    .mobile-nav a.cta{background:linear-gradient(90deg,#ffffff08,#ffffff02);color:var(--accent)}
+    .mobile-nav .brand{display:flex;align-items:center;gap:12px}
+    .mobile-nav .brand .logo{width:48px;height:48px;font-weight:900;border-radius:10px}
+
+    @media(max-width:860px){
+      nav.desktop{display:none}
+      .menu-btn{display:flex}
+    }
+
+    /* HERO — parallax layers */
+    .hero{margin-top:calc(var(--gap) * 0.8);display:grid;grid-template-columns:1fr;gap:12px;align-items:center}
+    .hero-inner{position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:var(--shadow-lg)}
+    .hero-layer{position:relative;height:360px}
+    .hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1556228450-9c6d6d0b6e91?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder');background-size:cover;background-position:center;transform:translateZ(0);will-change:transform}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.45));display:grid;place-items:center;padding:20px}
+    .hero-text{max-width:920px;text-align:center}
+    .hero-text h1{font-size:var(--fs-xxl);margin:0;line-height:1.02}
+    .hero-text p{margin:10px 0 0 0;color:var(--muted-2);font-size:var(--fs-md)}
+
+    /* stats */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:12px}
+    .stat{background:var(--card);padding:12px;border-radius:10px;text-align:center}
+    .stat strong{display:block;font-size:1.5rem}
+    .stat span{color:var(--muted-2)}
+
+    /* featured projects grid */
+    .featured{margin-top:var(--gap);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .fcard{position:relative;border-radius:12px;overflow:hidden;background:var(--card);cursor:pointer;min-height:180px;display:flex;align-items:end}
+    .fcard .img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.6);transition:transform .8s cubic-bezier(.2,.9,.2,1)}
+    .fcard:hover .img{transform:scale(1.06) rotate(-0.6deg)}
+    .fcard .info{position:relative;padding:16px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.45));width:100%}
+    .fcard h3{margin:0}
+
+    /* category section */
+    .project-section{margin-top:var(--gap)}
+    .section-head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+    .section-head h2{margin:0;font-size:var(--fs-xl)}
+    .section-head p{margin:0;color:var(--muted-2)}
+
+    /* slider */
+    .slider-wrap{margin-top:12px}
+    .slider{display:flex;gap:12px;overflow-x:auto;padding:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+    .slide{flex:0 0 70%;min-width:240px;border-radius:10px;background:var(--card);overflow:hidden;scroll-snap-align:center;position:relative}
+    .slide img{width:100%;height:220px;object-fit:cover;display:block}
+    @media(min-width:720px){ .slide{flex:0 0 33%} }
+    @media(min-width:1100px){ .slide{flex:0 0 22%} }
+
+    .controls{display:flex;gap:8px;align-items:center;margin-top:8px}
+    .btn{background:var(--card);border-radius:10px;padding:8px 10px;cursor:pointer;border:none;color:var(--muted-1)}
+
+    /* details / case notes */
+    .case-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
+    .case-card{background:var(--card);padding:14px;border-radius:12px}
+
+    /* client logos auto scroll */
+    .logos{margin-top:var(--gap);overflow:hidden;background:linear-gradient(90deg,rgba(255,255,255,0.01),transparent);padding:12px;border-radius:12px}
+    .logos-inner{display:flex;gap:26px;align-items:center;animation:scroll 18s linear infinite}
+    .logos img{height:40px;opacity:.85}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* footer */
+    footer{margin:36px 0 80px;text-align:center;color:var(--muted-2)}
+
+    /* reveal */
+    .fade-up{opacity:0;transform:translateY(10px)}
+    .is-visible{opacity:1;transform:none;transition:all .9s cubic-bezier(.2,.9,.2,1)}
+
+    @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="logo"><img src="images/logo.png" alt="PMH"></div>
+        <div>
+          <div style="font-weight:800">Premium Marble House</div>
+          <div style="font-size:12px;color:var(--muted-2)">Projects — Ultra Showcase</div>
+        </div>
+      </div>
+
+      <!-- Desktop nav -->
+      <nav class="desktop" aria-label="Main navigation">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="services.html">SERVICES</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html" class="cta">CONTACT</a>
+      </nav>
+
+      <!-- Menu button (mobile) -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span class="bar"></span>
+      </button>
+    </header>
+
+    <!-- Mobile backdrop (click to close) -->
+    <div class="mobile-backdrop" id="mobileBackdrop" aria-hidden="true"></div>
+
+    <!-- Right-side mobile nav panel -->
+    <aside class="mobile-nav" id="mobileNav" aria-hidden="true" role="dialog" aria-label="Mobile menu">
+      
+      <nav class="nav-inner" aria-label="Mobile main">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="services.html" class="cta">SERVICES</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+      <div style="margin-top:auto;color:var(--muted-2);font-size:13px">
+        <div style="margin-bottom:6px">Call us: <strong style="color:var(--accent)">+91 7023446505</strong></div>
+      </div>
+    </aside>
+
+    <!-- HERO with parallax background layers -->
+    <main>
+      <section class="hero">
+        <div class="hero-inner fade-up" id="hero" role="region" aria-label="Hero">
+          <div class="hero-layer">
+            <div class="hero-bg" id="heroBg" aria-hidden></div>
+            <div class="hero-overlay">
+              <div class="hero-text">
+                <h1>Architectural Services — Crafted in Stone</h1>
+                <p class="muted-2">An image-first library showcasing lobbies, residences, retail and public installations. Our work emphasizes vein continuity, structural integrity and installation finesse.</p>
+                <div class="stats" style="margin-top:14px;">
+                  <div class="stat"><strong id="stat-projects">0</strong><span>Projects</span></div>
+                  <div class="stat"><strong id="stat-years">0</strong><span>Years Working</span></div>
+                  <div class="stat"><strong id="stat-quarries">0</strong><span>Quarry Partners</span></div>
+                  <div class="stat"><strong id="stat-clients">0</strong><span>Clients</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Projects Grid -->
+      <section class="featured fade-up" aria-labelledby="featured-title">
+        <h2 id="featured-title" style="grid-column:1/-1;margin:0 0 8px 0">Featured Services</h2>
+        <!-- 6 featured cards -->
+        <article class="fcard" tabindex="0" role="button" aria-label="Featured - Grand Hotel Lobby">
+          <div class="img" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJrCwkwue_7suoEUJn6elkzKDt80KrLtgdFg&s')" ></div>
+          <div class="info"><h3> Shiv Villas Palace  — Lobby</h3><div class="muted-2"></div></div>
+        </article>
+
+        <article class="fcard" tabindex="0" role="button" aria-label="Featured - Penthouse">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1400&auto=format&fit=crop&s=placeholder')"></div>
+          <div class="info"><h3>Penthouse Residence</h3><div class="muted-2">Waterfall kitchen island & mitered edges</div></div>
+        </article>
+
+        <article class="fcard" tabindex="0" role="button" aria-label="Featured - Retail Flagship">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1400&auto=format&fit=crop&s=placeholder')"></div>
+          <div class="info"><h3>Retail Flagship</h3><div class="muted-2">Durable display surfaces & integrated lighting</div></div>
+        </article>
+
+        
+
+        <article class="fcard" tabindex="0" role="button" aria-label="Featured - Civic Centre">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1400&auto=format&fit=crop&s=placeholder')"></div>
+          <div class="info"><h3>Civic Centre</h3><div class="muted-2">Large-format flooring and stair treads</div></div>
+        </article>
+
+        <article class="fcard" tabindex="0" role="button" aria-label="Featured - Luxury Retail">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1400&auto=format&fit=crop&s=placeholder')"></div>
+          <div class="info"><h3>Luxury Retail</h3><div class="muted-2">Inlay detailing and product plinths</div></div>
+        </article>
+      </section>
+
+
+    <div class="slider" <h1 our lobby></h1>
+      <!-- 20 Lobby Images -->
+      <figure class="slide"><img src="images/lobby1.jpg" alt="Lobby 1"></figure>
+      <figure class="slide"><img src="images/lobby2.jpg" alt="Lobby 2"></figure>
+      <figure class="slide"><img src="images/lobby3.jpg" alt="Lobby 3"></figure>
+      <figure class="slide"><img src="images/lobby4.jpg" alt="Lobby 4"></figure>
+      <figure class="slide"><img src="images/lobby5.jpg" alt="Lobby 5"></figure>
+      <figure class="slide"><img src="images/lobby6.jpg" alt="Lobby 6"></figure>
+      <figure class="slide"><img src="images/lobby7.jpg" alt="Lobby 7"></figure>
+      <figure class="slide"><img src="images/lobby8.jpg" alt="Lobby 8"></figure>
+      <figure class="slide"><img src="images/lobby9.jpg" alt="Lobby 9"></figure>
+      <figure class="slide"><img src="images/lobby10.jpg" alt="Lobby 10"></figure>
+      <figure class="slide"><img src="images/lobby11.jpg" alt="Lobby 11"></figure>
+      <figure class="slide"><img src="images/lobby12.jpg" alt="Lobby 12"></figure>
+      <figure class="slide"><img src="images/lobby13.jpg" alt="Lobby 13"></figure>
+      <figure class="slide"><img src="images/lobby14.jpg" alt="Lobby 14"></figure>
+      <figure class="slide"><img src="images/lobby15.jpg" alt="Lobby 15"></figure>
+      <figure class="slide"><img src="images/lobby16.jpg" alt="Lobby 16"></figure>
+      <figure class="slide"><img src="images/lobby17.jpg" alt="Lobby 17"></figure>
+      <figure class="slide"><img src="images/lobby18.jpg" alt="Lobby 18"></figure>
+      <figure class="slide"><img src="images/lobby19.jpg" alt="Lobby 19"></figure>
+      <figure class="slide"><img src="images/lobby20.jpg" alt="Lobby 20"></figure>
+    </div>
+  </div>
+</section>
+
+     
+
+    <div class="slider">
+      <!-- 20 Retail Images -->
+      <figure class="slide"><img src="images/retail1.jpg" alt="Retail 1"></figure>
+      <figure class="slide"><img src="images/retail2.jpg" alt="Retail 2"></figure>
+      <figure class="slide"><img src="images/retail3.jpg" alt="Retail 3"></figure>
+      <figure class="slide"><img src="images/retail4.jpg" alt="Retail 4"></figure>
+      <figure class="slide"><img src="images/retail5.jpg" alt="Retail 5"></figure>
+      <figure class="slide"><img src="images/retail6.jpg" alt="Retail 6"></figure>
+      <figure class="slide"><img src="images/retail7.jpg" alt="Retail 7"></figure>
+      <figure class="slide"><img src="images/retail8.jpg" alt="Retail 8"></figure>
+      <figure class="slide"><img src="images/retail9.jpg" alt="Retail 9"></figure>
+      <figure class="slide"><img src="images/retail10.jpg" alt="Retail 10"></figure>
+      <figure class="slide"><img src="images/retail11.jpg" alt="Retail 11"></figure>
+      <figure class="slide"><img src="images/retail12.jpg" alt="Retail 12"></figure>
+      <figure class="slide"><img src="images/retail13.jpg" alt="Retail 13"></figure>
+      <figure class="slide"><img src="images/retail14.jpg" alt="Retail 14"></figure>
+      <figure class="slide"><img src="images/retail15.jpg" alt="Retail 15"></figure>
+      <figure class="slide"><img src="images/retail16.jpg" alt="Retail 16"></figure>
+      <figure class="slide"><img src="images/retail17.jpg" alt="Retail 17"></figure>
+      <figure class="slide"><img src="images/retail18.jpg" alt="Retail 18"></figure>
+      <figure class="slide"><img src="images/retail19.jpg" alt="Retail 19"></figure>
+      <figure class="slide"><img src="images/retail20.jpg" alt="Retail 20"></figure>
+    </div>
+  </div>
+</section>
+
+
+  <div class="section-head">
+    <h2>Public & Exterior Works</h2>
+    <p>Public artworks, sculptures and exterior facades.</p>
+  </div>
+
+ <div class="slider">
+      <!-- 20 Public Images -->
+      <figure class="slide"><img src="images/public1.jpg" alt="Public 1"></figure>
+      <figure class="slide"><img src="images/public2.jpg" alt="Public 2"></figure>
+      <figure class="slide"><img src="images/public3.jpg" alt="Public 3"></figure>
+      <figure class="slide"><img src="images/public4.jpg" alt="Public 4"></figure>
+      <figure class="slide"><img src="images/public5.jpg" alt="Public 5"></figure>
+      <figure class="slide"><img src="images/public6.jpg" alt="Public 6"></figure>
+      <figure class="slide"><img src="images/public7.jpg" alt="Public 7"></figure>
+      <figure class="slide"><img src="images/public8.jpg" alt="Public 8"></figure>
+      <figure class="slide"><img src="images/public9.jpg" alt="Public 9"></figure>
+      <figure class="slide"><img src="images/public10.jpg" alt="Public 10"></figure>
+      <figure class="slide"><img src="images/public11.jpg" alt="Public 11"></figure>
+      <figure class="slide"><img src="images/public12.jpg" alt="Public 12"></figure>
+      <figure class="slide"><img src="images/public13.jpg" alt="Public 13"></figure>
+      <figure class="slide"><img src="images/public14.jpg" alt="Public 14"></figure>
+      <figure class="slide"><img src="images/public15.jpg" alt="Public 15"></figure>
+      <figure class="slide"><img src="images/public16.jpg" alt="Public 16"></figure>
+      <figure class="slide"><img src="images/public17.jpg" alt="Public 17"></figure>
+      <figure class="slide"><img src="images/public18.jpg" alt="Public 18"></figure>
+      <figure class="slide"><img src="images/public19.jpg" alt="Public 19"></figure>
+      <figure class="slide"><img src="images/public20.jpg" alt="Public 20"></figure>
+    </div>
+  </div>
+</section>
+
+
+      
+
+      
+
+      
+
+      <!-- Case studies area -->
+      <section class="case-grid fade-up">
+        <div class="case-card card">
+          <h3>Deep Case Study — Grand Hotel Lobby</h3>
+          <p class="muted-2">120 m² of book-matched marble, integrated LED, thermal management for lighting and reinforcement behind thin onyx panels. Coordination included dry-lay sessions and mockups to finalise vein runs.</p>
+        </div>
+
+        <div class="case-card card">
+          <h3>Deep Case Study — Rivera Penthouse</h3>
+          <p class="muted-2">Concealed fixings for waterfall island and multiple bathroom suites. Template storage and spare slab reservation for future maintenance.</p>
+        </div>
+      </section>
+
+      <!-- Clients carousel -->
+      <section class="logos fade-up" aria-label="Client logos">
+        <div class="logos-inner" id="logosInner">
+          <!-- repeat logos for continuous scroll -->
+          <img src="https://picsum.photos/seed/logo1/300/100" alt="Client 1" loading="lazy">
+          <img src="https://picsum.photos/seed/logo2/300/100" alt="Client 2" loading="lazy">
+          <img src="https://picsum.photos/seed/logo3/300/100" alt="Client 3" loading="lazy">
+          <img src="https://picsum.photos/seed/logo4/300/100" alt="Client 4" loading="lazy">
+          <img src="https://picsum.photos/seed/logo5/300/100" alt="Client 5" loading="lazy">
+          <!-- duplicate for smooth loop -->
+          <img src="https://picsum.photos/seed/logo1/300/100" alt="Client 1" loading="lazy">
+          <img src="https://picsum.photos/seed/logo2/300/100" alt="Client 2" loading="lazy">
+          <img src="https://picsum.photos/seed/logo3/300/100" alt="Client 3" loading="lazy">
+        </div>
+      </section>
+
+      <!-- resource CTA -->
+      <section style="margin-top:var(--gap)" class="card fade-up">
+        <h3>Download Project Specs & BIM Pack</h3>
+        <p class="muted-2">Request full project specification packs, BIM files and installation mockup reports for tenders and approvals.</p>
+        <div style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <a class="btn" href="contact.html">Request BIM Package</a>
+          <a class="btn" href="">Download Spec Pack</a>
+        </div>
+      </section>
+
+       <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917023446505" 
+   class="whatsapp-float" 
+   target="_blank" 
+   aria-label="Chat on WhatsApp">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" 
+       alt="WhatsApp" />
+</a>
+
+    </main>
+
+    <footer>
+      <p>© Premium Marble House — Services • Replace placeholders with your project images before launch</p>
+    </footer>
+  </div>
+
+  <script>
+    /* --------------------------------------------------------------
+       Services (Ultra) — Client-side behavior
+       - Populate sliders with 20 placeholder images each (picsum seeds)
+       - Smooth drag-to-scroll + wheel-to-scroll (horizontal) + keyboard
+       - Parallax hero BG movement on scroll
+       - Animated counters
+       - IntersectionObserver reveal
+       - Keep animations GPU-friendly (transforms & opacity)
+       - Mobile right-side menu toggle + accessibility
+       -------------------------------------------------------------- */
+
+    (function(){
+      const categories = ['lobby','residence','retail','spa','public'];
+      const sliderMap = {};
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Utility: create image URL (picsum seeds for deterministic placeholders)
+      function imageFor(category, i){
+        const width = 1200; const height = (category==='residence' || category==='spa') ? 900 : 800;
+        return `https://picsum.photos/seed/${category}-${i}/${width}/${height}`;
+      }
+
+      
+
+      // Enhance sliders: wheel->horizontal, drag-to-scroll, buttons, keyboard
+      Object.values(sliderMap).forEach(slider => enhanceSlider(slider));
+
+      function enhanceSlider(slider){
+        // wheel to horizontal
+        slider.addEventListener('wheel', (e)=>{
+          if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+            e.preventDefault(); slider.scrollBy({left: e.deltaY * 1.6, behavior: 'smooth'});
+          }
+        }, {passive:false});
+
+        // drag to scroll
+        let down=false,startX,scrollStart;
+        slider.addEventListener('pointerdown', (e)=>{ down=true; slider.setPointerCapture(e.pointerId); startX=e.clientX; scrollStart=slider.scrollLeft; slider.classList.add('dragging'); });
+        slider.addEventListener('pointermove', (e)=>{ if(!down) return; const dx = startX - e.clientX; slider.scrollLeft = scrollStart + dx; });
+        ['pointerup','pointercancel','pointerleave'].forEach(evt=>slider.addEventListener(evt, (e)=>{ down=false; try{ slider.releasePointerCapture && slider.releasePointerCapture(e.pointerId); }catch(err){} slider.classList.remove('dragging'); }));
+
+        // prev/next buttons (located in parent .slider-wrap)
+        const parent = slider.closest('.slider-wrap');
+        const prev = parent.querySelector('.prev'); const next = parent.querySelector('.next');
+        if(prev) prev.addEventListener('click', ()=>scrollByStep(slider, -1));
+        if(next) next.addEventListener('click', ()=>scrollByStep(slider, 1));
+
+        // keyboard
+        slider.addEventListener('keydown', (e)=>{
+          if(e.key==='ArrowRight'){ e.preventDefault(); scrollByStep(slider,1); }
+          if(e.key==='ArrowLeft'){ e.preventDefault(); scrollByStep(slider,-1); }
+        });
+
+        // snap to nearest on scroll end
+        let scrollTimer; slider.addEventListener('scroll', ()=>{ clearTimeout(scrollTimer); scrollTimer=setTimeout(()=>snapToNearest(slider), 120); });
+      }
+
+      function scrollByStep(slider, dir){
+        const step = Math.round(slider.clientWidth * 0.65);
+        slider.scrollBy({left: step * dir, behavior:'smooth'});
+      }
+
+      function snapToNearest(slider){
+        const children = Array.from(slider.querySelectorAll('.slide'));
+        if(children.length===0) return;
+        const center = slider.scrollLeft + slider.clientWidth / 2;
+        let best=null, bestDiff=Infinity;
+        children.forEach(ch => { const chCenter = ch.offsetLeft + ch.clientWidth/2; const diff=Math.abs(chCenter-center); if(diff<bestDiff){ bestDiff=diff; best=ch; } });
+        if(best) best.scrollIntoView({behavior:'smooth', inline:'center'});
+      }
+
+      // Parallax hero background on scroll — subtle and performant
+      const heroBg = document.getElementById('heroBg');
+      window.addEventListener('scroll', ()=>{
+        const sc = window.scrollY; const rate = clamp(sc * 0.06, -40, 40);
+        heroBg.style.transform = `translateY(${rate}px) scale(1.02)`;
+      }, {passive:true});
+
+      // Animated counters (runs once when visible)
+      const counters = [ {id:'stat-projects',to:300}, {id:'stat-years',to:35}, {id:'stat-quarries',to:4}, {id:'stat-clients',to:2000} ];
+      const counterObserver = new IntersectionObserver((entries,obs)=>{ entries.forEach(e=>{ if(e.isIntersecting){ animateCounters(); obs.disconnect(); } }); }, {threshold:0.4});
+      counterObserver.observe(document.querySelector('.stats'));
+
+      function animateCounters(){
+        counters.forEach(c=>{
+          const el = document.getElementById(c.id); if(!el) return; let start=0; const duration=1100; const startTime=performance.now();
+          function tick(now){ const t = Math.min(1,(now-startTime)/duration); const eased = easeOutCubic(t); const val = Math.round(eased * c.to); el.textContent = val; if(t<1) requestAnimationFrame(tick); }
+          requestAnimationFrame(tick);
+        });
+      }
+      function easeOutCubic(t){ return 1 - Math.pow(1-t,3); }
+
+      // IntersectionObserver reveal for fade-up elements
+      if('IntersectionObserver' in window){
+        const io = new IntersectionObserver((entries, obs)=>{ entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('is-visible'); obs.unobserve(entry.target); } }); }, {threshold:0.12});
+        document.querySelectorAll('.fade-up, .fcard, .slide, .card').forEach(el=>io.observe(el));
+      } else { document.querySelectorAll('.fade-up').forEach(el=>el.classList.add('is-visible')); }
+
+      // logos: duplicate inner content so keyframes scroll loops seamlessly
+      (function duplicateLogos(){ const inner = document.getElementById('logosInner'); if(!inner) return; const clone = inner.innerHTML; inner.innerHTML += clone; })();
+
+      // helpers
+      function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+
+      // accessibility hints: focus outlines already present; allow tab into slides
+      // done — sliders populated and interactive
+
+      /* --------------------------
+         Mobile menu interactions
+         -------------------------- */
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const mobileBackdrop = document.getElementById('mobileBackdrop');
+
+      function openMenu(){
+        menuBtn.classList.add('open');
+        menuBtn.setAttribute('aria-expanded','true');
+        mobileNav.classList.add('show');
+        mobileBackdrop.classList.add('show');
+        mobileNav.setAttribute('aria-hidden','false');
+        // lock body scroll
+        document.body.style.overflow = 'hidden';
+        // focus first link
+        const firstLink = mobileNav.querySelector('a');
+        if(firstLink) firstLink.focus();
+      }
+      function closeMenu(){
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+        mobileNav.classList.remove('show');
+        mobileBackdrop.classList.remove('show');
+        mobileNav.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+        // return focus to menu button
+        menuBtn.focus();
+      }
+
+      menuBtn.addEventListener('click',(e)=>{
+        if(mobileNav.classList.contains('show')) closeMenu(); else openMenu();
+      });
+
+      mobileBackdrop.addEventListener('click', closeMenu);
+
+      // close on escape
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && mobileNav.classList.contains('show')){ closeMenu(); }
+      });
+
+      // close when a mobile nav link is activated (tap)
+      mobileNav.addEventListener('click', (e)=>{
+        const a = e.target.closest('a');
+        if(a) closeMenu();
+      });
+
+    })();
+  </script>
+</body>
+</html>

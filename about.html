@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>About — Premium Marble House</title>
+  <meta name="description" content="Premium Marble House — About us. Craft, provenance and precision fabrication. Ultra responsive, monochrome design." />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    
+
+     /* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle at 30% 30%, #25d366, #128c7e);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+.whatsapp-float img {
+  width: 34px;
+  height: 34px;
+  filter: invert(100%);
+}
+.whatsapp-float:hover {
+  transform: scale(1.12) rotate(5deg);
+  box-shadow: 0 10px 35px rgba(37, 211, 102, 0.8);
+}
+     :root{
+      --bg-1: #030304;
+      --bg-2: #0b0c0d;
+      --muted-1: #c7ced3; 
+      --muted-2: #9aa4ab; 
+      --muted-3: #6f7a80; 
+      --accent: #ffffff;
+      --glass: rgba(255,255,255,0.03);
+      --card: rgba(255,255,255,0.02);
+      --radius: 14px;
+      --shadow-lg: 0 30px 90px rgba(2,6,12,0.75);
+      --maxw: 1280px;
+      --gap: clamp(12px, 2.6vw, 32px);
+
+      --menu-width: 320px;
+      --overlay-bg: rgba(0,0,0,0.6); 
+      --menu-ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    
+    :root{
+      --fs-xxl: clamp(1.6rem, 1.1rem + 3.8vw, 3.2rem);
+      --fs-xl:  clamp(1.2rem, 0.9rem + 2.2vw, 2.2rem);
+      --fs-lg:  clamp(1.05rem, 0.95rem + 1.0vw, 1.15rem);
+      --fs-md:  clamp(0.95rem, 0.85rem + .4vw, 1rem);
+      --fs-sm:  .9rem;
+      --lead:   clamp(0.95rem, 0.9rem + .2vw, 1.05rem);
+    }
+
+    
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:var(--accent);-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%;height:auto}
+    a{color:inherit}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(12px,3vw,36px)}
+
+   
+    header{display:flex;align-items:center;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      background:linear-gradient(135deg,#0f1112,#2b2d2f); background-image: url(images/m\ \(19\).jpg);
+      display:grid;place-items:center;font-weight:900;font-size:18px;
+      box-shadow:inset 0 -6px 18px rgba(255,255,255,0.02);
+    }
+    .brand h1{font-size:var(--fs-lg);margin:0;font-weight:800}
+    nav{margin-left:auto;display:flex;gap:10px;align-items:center}
+    .nav-desktop{display:none}
+    .nav-desktop a{padding:8px 12px;border-radius:10px;background:transparent;font-weight:700;color:var(--muted-1)}
+    .nav-btn{padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,#ffffff08,#ffffff03);font-weight:800}
+
+    
+    .menu-btn{margin-left:auto;background:var(--card);border-radius:10px;padding:10px;display:grid;place-items:center;width:44px;height:44px;cursor:pointer;border:0;color:var(--muted-1)}
+    .menu-btn:focus{outline:2px solid rgba(255,255,255,0.06);outline-offset:3px}
+
+    
+    .hero{display:grid;grid-template-columns:1fr;gap:var(--gap);margin-top:calc(var(--gap) * 0.6);align-items:start}
+    .hero-card{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow-lg)}
+    .hero-card h2{font-size:var(--fs-xxl);margin:0 0 8px 0;line-height:1.02}
+    .hero-card p.lead{margin:0;color:var(--muted-2);font-size:var(--lead)}
+
+    
+    .hero-media{border-radius:12px;overflow:hidden;background:#0b0b0c;min-height:220px;display:grid;place-items:center}
+    .hero-media .visual{width:100%;height:100%;background-image:url('https://picsum.photos/seed/about-hero/1600/1100');background-size:cover;background-position:center;transition:transform .9s cubic-bezier(.2,.9,.2,1);will-change:transform}
+    .hero-media:hover .visual{transform:rotateY(-8deg) rotateX(3deg) scale(1.02);}
+
+    
+    .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px}
+    .kpi{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:10px;text-align:center}
+    .kpi strong{display:block;font-size:1.3rem}
+
+    
+    .content{margin-top:var(--gap);display:grid;gap:var(--gap)}
+    .intro{display:grid;grid-template-columns:1fr;gap:12px}
+    .two-col{display:grid;grid-template-columns:1fr;gap:12px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 12px 40px rgba(2,6,12,0.45)}
+    .muted{color:var(--muted-2)}
+
+    
+    .values{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .value{padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+
+    
+    .timeline{padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+    .timeline .step{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
+    .timeline .step:last-child{border-bottom:none}
+    .badge{width:44px;height:44px;border-radius:10px;background:linear-gradient(145deg,#0f1112,#2b2d2f);display:grid;place-items:center;font-weight:800}
+
+    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .person{padding:12px;border-radius:10px;background:var(--card);text-align:left}
+    .person img{height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+
+    
+    .accordion{margin-top:12px}
+    .acc-item{background:var(--card);border-radius:10px;overflow:hidden}
+    .acc-head{display:flex;align-items:center;justify-content:space-between;padding:12px;cursor:pointer;font-weight:700}
+    .acc-body{padding:12px;border-top:1px solid rgba(255,255,255,0.02);display:none;color:var(--muted-2);line-height:1.6}
+
+    
+    .faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .faq .q{padding:12px;border-radius:10px;background:var(--card);color:var(--muted-2)}
+
+   
+    .certs{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .cert{padding:10px 12px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);font-size:.95rem;color:var(--muted-2)}
+
+    
+    footer{margin:28px 0 80px;text-align:center;color:var(--muted-2);font-size:.95rem}
+
+    
+    .fade-up{opacity:0;transform:translateY(10px)}
+    .is-visible{opacity:1;transform:none;transition:all .9s cubic-bezier(.2,.9,.2,1)}
+    .small{font-size:.94rem;color:var(--muted-2)}
+
+    
+    #mobileOverlay{
+      position:fixed;
+      inset:0;
+      background:transparent;
+      pointer-events:none;
+      transition:background-color .28s var(--menu-ease);
+      z-index:80;
+    }
+    #mobileOverlay.visible{
+      background-color: var(--overlay-bg);
+      pointer-events:auto;
+    }
+
+    #mobileMenu{
+      position:fixed;
+      top:0;
+      right:0;
+      height:100vh;
+      width:var(--menu-width);
+      max-width:80%;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      backdrop-filter:none;
+      transform:translateX(110%);
+      transition:transform .36s var(--menu-ease);
+      z-index:90;
+      box-shadow: -18px 24px 70px rgba(2,6,12,0.65);
+      display:flex;
+      flex-direction:column;
+      padding:20px;
+      gap:18px;
+      border-left:1px solid rgba(255,255,255,0.02);
+    }
+    #mobileMenu.open{
+      transform:translateX(0%);
+    }
+    #mobileMenu .close-btn{
+      align-self:flex-end;
+      background:transparent;
+      border:0;
+      color:var(--muted-1);
+      font-size:20px;
+      cursor:pointer;
+      padding:8px;
+    }
+    #mobileMenu nav{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+    #mobileMenu a{font-weight:700;color:var(--muted-1);padding:10px 8px;border-radius:8px}
+    #mobileMenu a:focus{outline:2px solid rgba(255,255,255,0.06);outline-offset:3px}
+
+    @media (min-width:720px){
+      .nav-desktop{display:flex}
+      .menu-btn{display:none}
+      .hero{grid-template-columns:1fr 420px}
+      .two-col{grid-template-columns:1fr 420px}
+      #mobileOverlay, #mobileMenu{display:none}
+    }
+
+    @media (min-width:980px){
+      .wrap{padding:48px}
+      .hero-media .visual{height:520px}
+    }
+
+    
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+
+    
+    :focus{outline:2px solid rgba(255,255,255,0.06);outline-offset:3px}
+  </style>
+</head>
+<body>
+  <div class="wrap" id="page">
+    
+    <header role="banner" aria-labelledby="site-title">
+      <div class="brand" id="brand">
+        <div class="logo" aria-hidden><img src="images/logo.png" alt="PMH"></div>
+        <div>
+          <h1 id="site-title" style="margin:0;font-weight:800">Premium Marble House</h1>
+          <div class="small muted">About - our Legacy</div>
+        </div>
+      </div>
+
+      
+      <nav class="nav-desktop" role="navigation" aria-label="Primary navigation">
+        <a href="index.html">HOME</a>
+        <a href="services.html">SERVICES</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a class="nav-btn" href="contact.html">Contact</a>
+      </nav>
+
+     
+      <button class="menu-btn" id="openMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">☰</button>
+    </header>
+
+    
+    <div id="mobileOverlay" aria-hidden="true"></div>
+
+    
+    <aside id="mobileMenu" role="dialog" aria-modal="true" aria-hidden="true">
+     
+      <button class="close-btn" id="closeMenu" aria-label="Close menu">✕</button>
+      <nav aria-label="Mobile primary">
+        <a href="index.html">H0ME</a>
+        <a href="about.html" aria-current="page">ABOUT</a>
+        <a href="services.html">SERVICES</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </aside>
+
+    
+    <main id="main" role="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <article class="hero-card fade-up" id="hero-card">
+          <h2 id="hero-title">History & Craft — We turn stone into experiences</h2>
+          <p class="lead muted lead" style="margin-top:8px">
+            Founded By Craftspeople And Engineers, Premium Marble House epecializes In Premium Marble & Granite Sourcing, Precision Fabrication and carefully-managed installations for high-end residences and commercial projects.
+            This page is designed to introduce you to our story, capabilities and values — with a focus on quality, provenance and long-term partnerships.
+          </p>
+
+          <div class="kpis" style="margin-top:14px">
+            <div class="kpi"><strong>300+</strong><span class="small muted">Projects</span></div>
+            <div class="kpi"><strong>35+</strong><span class="small muted">Years</span></div>
+            <div class="kpi"><strong>3+</strong><span class="small muted">Quarry Partners</span></div>
+            <div class="kpi"><strong>ISO</strong><span class="small muted">QC & Lab Partnerships</span></div>
+          </div>
+        </article>
+
+        <aside class="hero-media fade-up" aria-hidden="true" id="hero-media">
+          
+          <div class="visual" role="img" aria-label="Marble showcase" loading="lazy"></div>
+        </aside>
+      </section>
+
+      
+      <section class="content">
+        <div class="intro">
+          <div class="card fade-up">
+            <h3 style="margin:0 0 8px 0">Our Philosophy</h3>
+            <p class="muted">We treat each slab as a one-off artwork. Our process combines curated sourcing, high-precision CNC fabrication and hand finishing to produce installations that read beautifully in daylight and under curated lighting. We advise architects and designers on vein direction, book-matching and finish selection so that installations feel cohesive across multiple rooms.</p>
+          </div>
+
+          <div class="card fade-up">
+            <h3 style="margin:0 0 8px 0">What sets us apart</h3>
+            <ul class="muted" style="margin:0 0 0 18px;line-height:1.6">
+              <li>Direct quarry relationships — better slab selection and pricing transparency</li>
+              <li>Precision fabrication — tight tolerances, mitered joins and CNC waterjet inlay</li>
+              <li>Insured, trackable shipping — shock sensors for high-value crates</li>
+              <li>Aftercare & maintenance guidance — lifetime advice for major installs</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card fade-up">
+            <h3 style="margin:0 0 8px 0">Our Values</h3>
+            <div class="values">
+              <div class="value"><strong>Quality</strong><div class="muted">Strict QC at sourcing, fabrication & pre-shipment.</div></div>
+              <div class="value"><strong>Transparency</strong><div class="muted">Slab-level photos & provenance documentation.</div></div>
+              <div class="value"><strong>Craft</strong><div class="muted">Hand finishing stations preserve artisan detail.</div></div>
+              <div class="value"><strong>Sustainability</strong><div class="muted">Offcut reuse and optimized cutting to reduce waste.</div></div>
+            </div>
+          </div>
+
+          <aside class="card fade-up">
+            <h3 style="margin:0 0 8px 0">Timeline — Milestones</h3>
+            <div class="timeline" aria-hidden>
+              <div class="step"><div class="badge">1967</div><div><strong>Founded</strong><div class="muted">Small yard with a big focus on bespoke pieces.</div></div></div>
+              <div class="step"><div class="badge">1999</div><div><strong>Workshop expansion</strong><div class="muted">CNC & polishing line added to improve capacity.</div></div></div>
+              <div class="step"><div class="badge">2007</div><div><strong>Quarry partnerships</strong><div class="muted">Direct sourcing from Italy, Brazil & India.</div></div></div>
+              <div class="step"><div class="badge">2023</div><div><strong>Showroom & Private Viewings</strong><div class="muted">Dedicated showroom for designers and clients.</div></div></div>
+            </div>
+          </aside>
+        </div>
+
+        
+        <div class="card fade-up">
+          <h3 style="margin:0 0 8px 0">Leadership & Key Craftspeople</h3>
+          <p class="muted">A small, tightly-knit team of fabricators, finishers and logistics specialists manage each project end-to-end.</p>
+          <div class="team" style="margin-top:12px">
+            <div class="person">
+              <img src="images/head1.jpg" alt="Arvind - Head of Fabrication" loading="lazy" width="220">
+              <h4 style="margin:6px 0">Prakash Agarwal — Head of PM</h4>
+              <p class="muted">Working Since 2004 , 20+ years in stone fabrication and edge profiling and Overall Experience.</p>
+            </div>
+
+            <div class="person">
+              <img src="images/lobby.jpg"  alt="Leena - Design Director" width="180" loading="lazy">
+              <h4 style="margin:6px 0">Mr. Om — Account Manager</h4>
+              <p class="muted">Material-led interior planner; coordinates with architects on vein direction and mock-ups.</p>
+            </div>
+
+            <div class="person">
+              <img src="images/papa.jpg" width="220"  alt="Suresh - Logistics Manager" loading="lazy">
+              <h4 style="margin:6px 0">Shabbir Sheikh — Sales Manager</h4>
+              <p class="muted">Specialist in Measurment, shipping and site uplift plans for fragile slabs.</p>
+            </div>
+          </div>
+        </div>
+
+        
+        <section class="accordion fade-up" aria-labelledby="resources-title">
+          <h3 id="resources-title" style="margin:0 0 8px 0">In-depth Technical Resources</h3>
+          <p class="muted" style="margin:0 0 12px 0">Expand each section to read the long-form technical notes used by architects and contractors.</p>
+
+          <div class="acc-item">
+            <div class="acc-head">Fabrication & CNC workflows <span class="muted">▾</span></div>
+            <div class="acc-body">
+              <p>We run a nested cutting algorithm to maximize slab yield and plan book-matching sequences as part of the nesting. Edge profiling is done on dedicated machines and all seams are test-assembled in the shop when possible. For mitered waterfall edges, we use jigs to maintain exact 45° tolerances and inspect under high-intensity lighting before packing.</p>
+              <p class="muted small">(This block should be replaced by your internal fabrication SOP if you have one.)</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <div class="acc-head">Testing & Certification <span class="muted">▾</span></div>
+            <div class="acc-body">
+              <p>We partner with accredited labs for water absorption, density and mechanical strength testing. For projects with façade exposure, we require lab certificates and mock-ups before approving the final slab batch.</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <div class="acc-head">Logistics & Crating <span class="muted">▾</span></div>
+            <div class="acc-body">
+              <p>Crates are built with treated timber, internal padding and shock monitoring when requested. High-value shipments include photos at dispatch and a recorded loading sequence for insurance claims. Site lift plans and A-frame locations are agreed with site teams prior to arrival.</p>
+            </div>
+          </div>
+        </section>
+
+        
+        <section class="faq fade-up" aria-labelledby="faq-title">
+          <h3 id="faq-title" style="margin:0 0 8px 0">Frequently Asked Questions</h3>
+          <div class="q"><strong>Can we view slabs at your yard?</strong><p class="muted">Yes — we schedule slab viewings by appointment and recommend bringing finish samples so we can recommend slabs that match color & vein direction.</p></div>
+          <div class="q"><strong>Do you ship internationally?</strong><p class="muted">Yes — we manage export documentation, crating and shipping. Customs duties and import taxes vary by destination.</p></div>
+          <div class="q"><strong>How long is lead time?</strong><p class="muted">Typical domestic lead time: 2–6 weeks depending on fabrication complexity. International deliveries depend on sea/air freight schedules.</p></div>
+          <div class="q"><strong>Do you offer warranties?</strong><p class="muted">We provide limited warranties for fabrication defects. Natural variation in stone is not considered a defect — we document slabs and require client sign-off for selected faces.</p></div>
+        </section>
+
+        
+        <section class="card fade-up" aria-labelledby="certs-title">
+          <h3 id="certs-title" style="margin:0 0 8px 0">Certifications & Sustainability</h3>
+          <p class="muted" style="margin:0 0 8px 0">We publish a yearly sustainability summary: offcut usage, yield improvements and selected quarry practices. We also facilitate third-party environmental audits on request.</p>
+          <div class="certs" style="margin-top:10px">
+            <div class="cert">Certificate of Origin (available)</div>
+            <div class="cert">Third-party lab testing (on request)</div>
+            <div class="cert">Sustainability Report (annual)</div>
+          </div>
+        </section>
+      </section>
+       <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917023446505" 
+   class="whatsapp-float" 
+   target="_blank" 
+   aria-label="Chat on WhatsApp">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" 
+       alt="WhatsApp" />
+</a>
+    </main>
+
+    
+    <footer role="contentinfo">
+      <p>© <strong>Premium Marble House</strong> — All rights reserved • 
+      <p class="muted" style="margin-top:8px">Showroom by appointment • <a href="contact.html">Contact us</a></p>
+    </footer>
+  </div>
+
+  <script>
+    
+
+    (function(){
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+     
+      const mobileOverlay = document.getElementById('mobileOverlay');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const openBtn = document.getElementById('openMenu');
+      const closeBtn = document.getElementById('closeMenu');
+
+      
+      const showMenu = () => {
+        if(!mobileMenu || !mobileOverlay || !openBtn) return;
+        mobileMenu.classList.add('open');
+        mobileMenu.setAttribute('aria-hidden','false');
+        mobileOverlay.classList.add('visible');
+        mobileOverlay.setAttribute('aria-hidden','false');
+        openBtn.setAttribute('aria-expanded','true');
+        
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+        
+        const firstLink = mobileMenu.querySelector('a');
+        if(firstLink && !prefersReducedMotion) firstLink.focus();
+      };
+
+      const hideMenu = () => {
+        if(!mobileMenu || !mobileOverlay || !openBtn) return;
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden','true');
+        mobileOverlay.classList.remove('visible');
+        mobileOverlay.setAttribute('aria-hidden','true');
+        openBtn.setAttribute('aria-expanded','false');
+        
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        
+        openBtn.focus();
+      };
+
+      
+      if(openBtn){
+        openBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          showMenu();
+        });
+      }
+      if(closeBtn){
+        closeBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          hideMenu();
+        });
+      }
+
+      
+      if(mobileOverlay){
+        mobileOverlay.addEventListener('click', (e) => {
+          hideMenu();
+        });
+      }
+
+      
+      if(mobileMenu){
+        mobileMenu.querySelectorAll('a').forEach(a=>{
+          a.addEventListener('click', ()=> {
+            
+            if(prefersReducedMotion) {
+              hideMenu();
+            } else {
+              hideMenu();
+            }
+          });
+        });
+      }
+
+      
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape') {
+          hideMenu();
+        }
+      });
+
+      
+      document.querySelectorAll('.acc-item').forEach(item=>{
+        const head = item.querySelector('.acc-head');
+        const body = item.querySelector('.acc-body');
+        if(!head || !body) return;
+        head.addEventListener('click', ()=>{
+          const isOpen = body.style.display === 'block';
+        
+          document.querySelectorAll('.acc-body').forEach(b=>b.style.display='none');
+          if(!isOpen) body.style.display = 'block';
+          
+          if(!prefersReducedMotion) body.scrollIntoView({behavior:'smooth', block:'nearest'});
+        });
+      });
+
+      
+      if('IntersectionObserver' in window){
+        const io = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {threshold: 0.12});
+        document.querySelectorAll('.fade-up, .card, .person, .hero-media').forEach(el=>io.observe(el));
+      } else {
+        
+        document.querySelectorAll('.fade-up').forEach(el=>el.classList.add('is-visible'));
+      }
+
+      
+      const heroMedia = document.getElementById('hero-media');
+      const visual = heroMedia && heroMedia.querySelector('.visual');
+      let supportsPointer = window.matchMedia('(pointer: fine)').matches;
+      if(visual && supportsPointer && !prefersReducedMotion){
+        heroMedia.addEventListener('pointermove', (e)=>{
+          const r = heroMedia.getBoundingClientRect();
+          const cx = (e.clientX - r.left) / r.width - .5;
+          const cy = (e.clientY - r.top) / r.height - .5;
+          
+          visual.style.transform = `perspective(900px) rotateY(${(-cx*6).toFixed(2)}deg) rotateX(${(cy*5).toFixed(2)}deg) scale(1.02)`;
+        });
+        heroMedia.addEventListener('pointerleave', ()=> visual.style.transform = '');
+      }
+
+      
+      requestAnimationFrame(()=>{ document.querySelectorAll('.visual').forEach(v=>{ const bg = v.style.backgroundImage; v.style.backgroundImage = bg; }); });
+
+    })();
+  </script>
+</body>
+</html>

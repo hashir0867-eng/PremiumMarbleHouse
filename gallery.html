@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Marble House — Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    
+
+     /* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle at 30% 30%, #25d366, #128c7e);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+.whatsapp-float img {
+  width: 34px;
+  height: 34px;
+  filter: invert(100%);
+}
+.whatsapp-float:hover {
+  transform: scale(1.12) rotate(5deg);
+  box-shadow: 0 10px 35px rgba(37, 211, 102, 0.8);
+}
+    :root {
+      --bg: #050506;
+      --muted: #bfc7cc;
+      --accent: #e6e6e6;
+      --card: rgba(255, 255, 255, 0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, var(--bg), #111417);
+      color: var(--accent);
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+
+    header a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    header a:hover {
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin: 40px 0 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 4px;
+    }
+
+    /* Gallery Grid for Desktop */
+    .gallery-section {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 0px;
+      box-shadow: 0 20px 50px rgba(2, 6, 23, 0.6);
+      margin-bottom: 50px;
+      transition: 0.4s ease;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.4s ease, box-shadow 0.4s;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05) rotate3d(1, 1, 0, 6deg);
+      box-shadow: 0 12px 25px rgba(255, 255, 255, 0.1);
+    }
+
+    /* Footer Auto Scroll */
+    footer {
+      margin-top: 80px;
+      padding: 20px 0;
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    .scroll-strip {
+      display: flex;
+      gap: 20px;
+      animation: scroll 40s linear infinite;
+      width: max-content;
+    }
+
+    .scroll-strip img {
+      height: 140px;
+      width: auto;
+      border-radius: 12px;
+      filter: brightness(0.85);
+      transition: 0.4s;
+    }
+
+    .scroll-strip img:hover {
+      filter: brightness(1.05);
+      transform: scale(1.1);
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* --- MOBILE SLIDER MODE --- */
+    @media (max-width: 900px) {
+      .gallery-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        gap: 20px;
+        padding-bottom: 10px;
+      }
+
+      .gallery-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .gallery-grid img {
+        flex: 0 0 80%;
+        max-width: 90%;
+        height: 440px;
+        scroll-snap-align: start;
+        border-radius: 14px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-grid img:active {
+        transform: scale(0.97);
+      }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 00px) {
+      .gallery-grid img {
+        flex: 0 0 90%;
+        height: 390px;
+        width: 500px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">← BACK TO HOME</a>
+    <h1>Gallery</h1>
+  </header>
+
+  <main>
+    <!-- White Marble -->
+    <section class="gallery-section">
+      <h2>White Marble</h2>
+      <div class="gallery-grid">
+        <img src="images/white32.jpg" alt="White Marble 4" />
+        <img src="images/white.jpg" alt="White Marble 1"/>
+        <img src="images/white1.jpg" alt="White Marble 2" />
+        <img src="images/white2.jpg" alt="White Marble 3" />
+        <img src="images/white33.jpg" alt="White Marble 5" />
+        <img src="images/white5.jpg" alt="White Marble 6" />
+        <img src="images/white6.jpg" alt="White Marble 7" />
+        <img src="images/white7.jpg" alt="White Marble 8" />
+        <img src="images/white8.jpg" alt="White Marble 9" />
+        <img src="images/white9.jpg" alt="White Marble 10" />
+        <img src="images/white10.jpg" alt="White Marble 11" />
+        <img src="images/white11.jpg" alt="White Marble 12" />
+        <img src="images/white12.jpg" alt="White Marble 13" />
+        <img src="images/white13.jpg" alt="White Marble 14" />
+        <img src="images/white36.jpg" alt="White Marble 15" />
+        <img src="images/white15.jpg" alt="White Marble 16" />
+        <img src="images/white16.jpg" alt="White Marble 17" />
+        <img src="images/white17.jpg" alt="White Marble 18" />
+        <img src="images/white18.jpg" alt="White Marble 19" />
+        <img src="images/white19.jpg" alt="White Marble 20" />
+        <img src="images/white20.jpg" alt="White Marble 21" />
+        <img src="images/white21.jpg" alt="White Marble 22" />
+        <img src="images/white22.jpg" alt="White Marble 23" />
+        <img src="images/white23.jpg" alt="White Marble 24" />
+        <img src="images/white24.jpg" alt="White Marble 25" />
+        <img src="images/white25.jpg" alt="White Marble 26" />
+        <img src="images/white27.jpg" alt="White Marble 27" />
+        <img src="images/white28.jpg" alt="White Marble 28" />
+        <img src="images/white29.jpg" alt="White Marble 29" />
+        <img src="images/white34.jpg" alt="White Marble 30" />
+      </div>
+    </section>
+
+    <!-- Italian Marble -->
+    <section class="gallery-section">
+      <h2>Italian Marble</h2>
+      <div class="gallery-grid">
+        <img src="images/italian2.jpg" alt="Italian Marble 1" />
+        <img src="images/italian.jpg" alt="Italian Marble 2" />
+        <img src="images/.jpg" alt="Italian Marble 3" />
+        <img src="images/" alt="Italian Marble 4" />
+        <img src="images/" alt="Italian Marble 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+      </div>
+    </section
+    <!-- Granite -->
+    <section class="gallery-section">
+      <h2>Premium Granite</h2>
+      <div class="gallery-grid">
+        <img src="images/granite.jpg" alt="Granite 1" />
+        <img src="images/granite (2).jpg" alt="Granite 2" />
+        <img src="images/" alt="Granite 3" />
+        <img src="images/" alt="Granite 4" />
+        <img src="images/" alt="Granite 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+      </div>
+    </section>
+
+    <!-- Onyx -->
+    <section class="gallery-section">
+      <h2>Onyx Stones</h2>
+      <div class="gallery-grid">
+        <img src="images/" alt="Onyx 1" />
+        <img src="images/" alt="Onyx 2" />
+        <img src="images/" alt="Onyx 3" />
+        <img src="images/" alt="Onyx 4" />
+        <img src="images/" alt="Onyx 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+      </div>
+    </section>
+    
+    <!-- Travertine -->
+    <section class="gallery-section">
+      <h2>Travertine Textures</h2>
+      <div class="gallery-grid">
+        <img src="images/" alt="Travertine 2" />
+        <img src="images/" alt="Travertine 3" />
+        <img src="images/" alt="Travertine 4" />
+        <img src="images/" alt="Travertine 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+        <img src="images/" alt="White Marble 1" />
+        <img src="images/" alt="White Marble 2" />
+        <img src="images/" alt="White Marble 3" />
+        <img src="images/" alt="White Marble 4" />
+        <img src="images/" alt="White Marble 5" />
+      </div>
+    </section>
+     <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917023446505" 
+   class="whatsapp-float" 
+   target="_blank" 
+   aria-label="Chat on WhatsApp">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" 
+       alt="WhatsApp" />
+</a>
+  </main>
+
+  <footer>
+    <div class="scroll-strip"
+      <img src="images/b4bacc413c880597210e30498f5787e4.jpg" alt="Footer Marble 1"/>
+      <img src="images/onex.jpg" alt="Footer Marble 2" />
+      <img src="images/onex1.jpg" alt="Footer Marble 3" />
+      <img src="images/granite.jpg" alt="Footer Marble 4" />
+      <img src="images/granite13.jpg" alt="Footer Marble 5" />
+      <img src="images/granite14.jpg" alt="Footer Marble 1" />
+      <img src="images/torento.jpg" alt="Footer Marble 2" />
+      <img src="images/torento1.jpg" alt="Footer Marble 3" />
+      <img src="images/torento2.jpg" alt="Footer Marble 4" />
+      <img src="images/white11.jpg" alt="Footer Marble 5" />
+      <img src="images/white19.jpg" alt="White Marble 1" />
+      <img src="images/white15.jpg" alt="White Marble 1" />
+      <img src="images/cheema-pink-granite-500x500.png" alt="White Marble 2" />
+      <img src="images/torento5.jpg" alt="White Marble 3" />
+      <img src="images/granite19.jpg" alt="White Marble 4" />
+      <img src="images/white40.png" alt="White Marble 5" />
+      <img src="images/IMG_20210408_142632.jpg" alt="White Marble 1" />
+      <img src="images/IMG_20210729_144543(1).jpg" alt="White Marble 2" />
+      <img src="images/white3.jpg" alt="White Marble 3" />
+      <img src="images/white43.png" alt="White Marble 4" />
+      <img src="images/white25.jpg" alt="White Marble 5" />
+    </div>
+     
+  </footer>
+
+  <script>
+    // Momentum scroll tweak for smoother mobile scroll feel
+    document.querySelectorAll('.gallery-grid').forEach(grid => {
+      let isDown = false, startX, scrollLeft;
+      grid.addEventListener('mousedown', e => {
+        isDown = true;
+        grid.classList.add('active');
+        startX = e.pageX - grid.offsetLeft;
+        scrollLeft = grid.scrollLeft;
+      });
+      grid.addEventListener('mouseleave', () => isDown = false);
+      grid.addEventListener('mouseup', () => isDown = false);
+      grid.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - grid.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        grid.scrollLeft = scrollLeft - walk;
+      });
+    });
+  </script>
+</body>
+</html>
